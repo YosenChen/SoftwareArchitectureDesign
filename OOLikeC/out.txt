@@ -1,0 +1,17 @@
+======================stack/queue implememtation using array====================
+st.getSize()=0, st.isEmpty()=1, st.isFull()=0
+push chk = 1, push chk = 0
+st.pop h=100 st.getSize()=2, 
+st.pop h=10 st.getSize()=1, 
+st.pop h=5 st.getSize()=0, 
+when Empty, st.pop(h)=0, h=5
+st.getSize()=0, st.isEmpty()=1, st.isFull()=0
+q.getSize()=0, q.isEmpty()=1, q.isFull()=0
+q.isFull() = 1
+q.deQue out=a q.getSize()=2, 
+q.deQue out=b q.getSize()=1, 
+q.deQue out=c q.getSize()=0, 
+2nd round test: 
+q.deQue out=f q.getSize()=2, 
+q.deQue out=g q.getSize()=1, 
+q.deQue out=A q.getSize()=0, 
