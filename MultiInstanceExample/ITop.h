@@ -1,7 +1,7 @@
 #ifndef ITOP_H
 #define ITOP_H
 
-#include <ITopBase.h>
+#include "ITopBase.h"
 
 class ITop : public ITopBase
 {
@@ -31,7 +31,8 @@ public:
 	{
 		cout << __FUNCTION__ << "() return ITopCase<" << (int)scenType << ">\n";
 		static ITopCase<scenType> singleton;
-		printf("ITopCase<scenType> singleton addr = 0x%x\n", (int)reinterpret_cast<void*>(&singleton));
+		printf("ITopCase<scenType> singleton addr = %p\n", &singleton);
+
 		return &singleton;
 	}
 	ITopCase()

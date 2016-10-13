@@ -1,5 +1,5 @@
 
-#include <ITopBase.h>
+#include "ITopBase.h"
 
 
 int main(void)
@@ -14,6 +14,6 @@ int main(void)
 	
 
 
-	system("pause");
+	getchar();
 	return 0;
 }
