@@ -9,8 +9,8 @@ struct ImpA
     struct Interface _base;
 
 //implementation functions, variables
-	int a;
-	BOOL (*show_a) (struct ImpA* _this);
+    int a;
+    BOOL (*show_a) (struct ImpA* _this);
 };
 
 BOOL ImpA_enter (struct Interface* _this, int id);
@@ -28,8 +28,8 @@ struct ImpB
     struct Interface _base;
 
 //implementation functions, variables
-	int b;
-	BOOL (*show_b) (struct ImpB* _this);
+    int b;
+    BOOL (*show_b) (struct ImpB* _this);
 };
 
 BOOL ImpB_enter (struct Interface* _this, int id);

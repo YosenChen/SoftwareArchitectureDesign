@@ -7,19 +7,19 @@ typedef char      BOOL;
 
 enum EImpType
 {
-	EImpType_NONE = 0, //to avoid uninit case
-	EImpType_A,
-	EImpType_B,
-	NUM_IMP_TYPE
+    EImpType_NONE = 0, //to avoid uninit case
+    EImpType_A,
+    EImpType_B,
+    NUM_IMP_TYPE
 };
 
 
 struct Interface
 {
-	enum EImpType mType;
-	BOOL (*enter) (struct Interface* _this, int id);
-	BOOL (*execute) (struct Interface* _this, char* str);
-	BOOL (*exit) (struct Interface* _this);
+    enum EImpType mType;
+    BOOL (*enter) (struct Interface* _this, int id);
+    BOOL (*execute) (struct Interface* _this, char* str);
+    BOOL (*exit) (struct Interface* _this);
 };
 
 //static Interface
