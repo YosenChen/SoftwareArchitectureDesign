@@ -43,7 +43,7 @@ public:
         pthread_join(mThd, NULL);
     }
     
-    void enqReq(Req_T const &rReq)
+    void enQReq(Req_T const &rReq)
     {
         Autolock autolock(&mMtx);
         printf("[%s] +\n", __FUNCTION__);
@@ -52,7 +52,7 @@ public:
         printf("[%s] -\n", __FUNCTION__);
     }
     
-    bool deQueReq(Req_T &rReq)
+    bool deQReq(Req_T &rReq)
     {
         Autolock autolock(&mMtx);
         printf("[%s] +, size(%d)\n", __FUNCTION__, mReqQ.size());
@@ -77,7 +77,7 @@ public:
         Req_T rReq;
         ReqQExer* _this = (ReqQExer*)arg;
         printf("[%s] +\n", __FUNCTION__);
-        while(_this->deQueReq(rReq))
+        while(_this->deQReq(rReq))
         {
             _this->executeReq(rReq);
         }
@@ -98,66 +98,65 @@ int main()
     {
         ReqQExer reqQE;
         ssleep(1);
-        reqQE.enqReq(a);
-        reqQE.enqReq(b);
-        reqQE.enqReq(c);
+        reqQE.enQReq(a);
+        reqQE.enQReq(b);
+        reqQE.enQReq(c);
         ssleep(3);
-        reqQE.enqReq(d);
+        reqQE.enQReq(d);
         ssleep(2);
-        reqQE.enqReq(e);
-        reqQE.enqReq(f);
+        reqQE.enQReq(e);
+        reqQE.enQReq(f);
     }
     getchar();
     return 0;
 }
 
 /*
-yusheng@corn15:~/Documents/CodingPractice$ ls
-BasicArithmeticWithStringInput_.cpp  HereOnlyStoresTempFiles  ReqQExer.cpp
-yusheng@corn15:~/Documents/CodingPractice$ g++ -pthread -o ReqQExer ReqQExer.cpp 2>&1 | tee build.log
+How to compile it?
+g++ -pthread -o ReqQExer ReqQExer_done.cpp 2>&1 | tee build.log
 
-yusheng@corn15:~/Documents/CodingPractice$ ./ReqQExer
+-------------- result ---------------
+
+idfs@idfs-K42Jr:~/GitHubWorkSpace/SoftwareArchitectureDesign/ReqQExer$ ./ReqQExer 
 [ReqQExer]
 [reqQExeLoop] +
-[deQueReq] +, size(0)
-[enqReq] +
-[enqReq] -
-[enqReq] +
-[enqReq] -
-[enqReq] +
-[enqReq] -
-[deQueReq] - Req#1 = 1
+[deQReq] +, size(0)
+[enQReq] +
+[enQReq] -
+[enQReq] +
+[enQReq] -
+[enQReq] +
+[enQReq] -
+[deQReq] - Req#1 = 1
 [executeReq] Req#1 = 1) +
 [executeReq] -
-[deQueReq] +, size(2)
-[deQueReq] - Req#2 = 2
+[deQReq] +, size(2)
+[deQReq] - Req#2 = 2
 [executeReq] Req#2 = 2) +
 [executeReq] -
-[deQueReq] +, size(1)
-[deQueReq] - Req#3 = 3
+[deQReq] +, size(1)
+[deQReq] - Req#3 = 3
 [executeReq] Req#3 = 3) +
 [executeReq] -
-[deQueReq] +, size(0)
-[enqReq] +
-[enqReq] -
-[deQueReq] - Req#4 = 4
+[deQReq] +, size(0)
+[enQReq] +
+[enQReq] -
+[deQReq] - Req#4 = 4
 [executeReq] Req#4 = 4) +
 [executeReq] -
-[deQueReq] +, size(0)
-[enqReq] +
-[enqReq] -
-[enqReq] +
-[enqReq] -
+[deQReq] +, size(0)
+[enQReq] +
+[enQReq] -
+[enQReq] +
+[enQReq] -
 [~ReqQExer]
-[deQueReq] - Req#5 = 5
+[deQReq] - Req#5 = 5
 [executeReq] Req#5 = 5) +
 [executeReq] -
-[deQueReq] +, size(1)
-[deQueReq] - Req#6 = -1
+[deQReq] +, size(1)
+[deQReq] - Req#6 = -1
 [reqQExeLoop] -
 
-yusheng@corn15:~/Documents/CodingPractice$
-
-
+idfs@idfs-K42Jr:~/GitHubWorkSpace/SoftwareArchitectureDesign/ReqQExer$ 
 
 */

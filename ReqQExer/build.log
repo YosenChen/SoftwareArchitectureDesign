@@ -1,0 +1,5 @@
+ReqQExer_done.cpp: In constructor ‘ReqQExer::ReqQExer()’:
+ReqQExer_done.cpp:32:37: warning: extended initializer lists only available with -std=c++11 or -std=gnu++11
+     , mCond(PTHREAD_COND_INITIALIZER)
+                                     ^
+ReqQExer_done.cpp:32:37: warning: extended initializer lists only available with -std=c++11 or -std=gnu++11
