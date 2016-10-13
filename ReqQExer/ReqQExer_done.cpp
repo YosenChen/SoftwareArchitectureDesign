@@ -56,13 +56,13 @@ public:
     {
         Autolock autolock(&mMtx);
         printf("[%s] +, size(%d)\n", __FUNCTION__, mReqQ.size());
-	    if (!mReqQ.size()) pthread_cond_wait(&mCond, &mMtx);
-	    
-	    rReq = mReqQ.front();
-	    mReqQ.pop_front();
-	    printf("[%s] - Req#%d = %d\n", __FUNCTION__, rReq.idx, rReq.val);
-	    if (rReq.val == -1) return false;
-	    else return true;
+        if (!mReqQ.size()) pthread_cond_wait(&mCond, &mMtx);
+        
+        rReq = mReqQ.front();
+        mReqQ.pop_front();
+        printf("[%s] - Req#%d = %d\n", __FUNCTION__, rReq.idx, rReq.val);
+        if (rReq.val == -1) return false;
+        else return true;
     }
     
     void executeReq(Req_T req)
@@ -158,5 +158,6 @@ idfs@idfs-K42Jr:~/GitHubWorkSpace/SoftwareArchitectureDesign/ReqQExer$ ./ReqQExe
 [reqQExeLoop] -
 
 idfs@idfs-K42Jr:~/GitHubWorkSpace/SoftwareArchitectureDesign/ReqQExer$ 
+
 
 */
